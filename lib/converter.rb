@@ -1,7 +1,7 @@
 class Converter
   attr_reader :path
 
-  @@output = './docs/converted'
+  OUTPUT = './docs/converted'
 
   def self.call(paths = [])
     paths.each do |path|
@@ -17,9 +17,9 @@ class Converter
 
   def convert
     if use_ocr?(path)
-      Docsplit.extract_text(path, :ocr => true, :output => @@output)
+      Docsplit.extract_text(path, :ocr => true, :output => OUTPUT)
     else
-      Docsplit.extract_text(path, :ocr => false, :output => @@output)
+      Docsplit.extract_text(path, :ocr => false, :output => OUTPUT)
     end
   end
 
